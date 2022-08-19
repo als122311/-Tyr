@@ -17,12 +17,12 @@ function bam () {
     char.classList.contains("enemy2") || char.classList.contains("enemy3")) {
         char.classList.add("boom")
         hits ++
-        hit.innerText = " Поподаний" + hits
+        hit.innerText = " hits" + hits
     }
     else{
     char.classList.add("nono")
     misses += 5
-    miss.innerText = " Мимо" +  misses
+    miss.innerText = " misses" +  misses
     }
     
     shoot.play()
@@ -38,8 +38,8 @@ start.addEventListener("click", startGame)
 function startGame() {
     hits = 0
     misses = 0
-    hit.innerText = "в Цель:" + hits
-    miss.innerText = "Мимо:" + misses
+    hit.innerText = "to Goal:" + hits
+    miss.innerText = "misses:" + misses
     timer = setInterval(selectEnemy,random(2000) + 1000)
     char.addEventListener("mousedown", bam)
     result.style.height = "0px"
@@ -47,11 +47,11 @@ function startGame() {
         char.style.opacity = "0"
         result.style.height = "100%"
         if (hits > misses) {
-            result.innerText = "ты выиграл"
+            result.innerText = "You won"
         }
 
         else{
-            result.innerText = " ты проиграл"
+            result.innerText = " you lose"
         }
         clearInterval(timer)
     },30000)
